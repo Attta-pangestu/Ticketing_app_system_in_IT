@@ -18,7 +18,7 @@ const TicketPage = ({params}: {params: {id: string}}) => {
                 <option value="feature">Feature</option>
                 <option value="other">Other</option>
             </select>
-            <label>Priority</label>
+            <label>Priority veri</label>
             <div>
                 <input type="radio" name="priority" id="low" value={0} />
                 <label htmlFor="low">Low</label>
