@@ -27,6 +27,8 @@ const TicketPage = ({params}: {params: {id: string}}) => {
                 <input type="radio" name="priority" id="high" value={2} />
                 <label htmlFor="high">High</label>
             </div>
+            <label >Progress</label>
+            
         </form>
     </div>
   )

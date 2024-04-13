@@ -1,1 +1,27 @@
 node_modules
+
+# Next.js
+/.next
+/out
+
+# IDE / Editor
+/.vscode
+/.idea
+
+# Environment Variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# npm
+/node_modules
+
+# Yarn
+/yarn-error.log
+
+# Testing
+/coverage
+
+# Build directories
+/build
