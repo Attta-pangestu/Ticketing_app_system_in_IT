@@ -25,7 +25,7 @@ const TicketCard = () => {
     
 
   return (
-    <div className='flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-4 m-2  '>
+    <div className='flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-2 m-2  '>
         <div className='flex mb-3'>
             <PriorityDisplay priority={0} />
             <div className='ml-auto'>
