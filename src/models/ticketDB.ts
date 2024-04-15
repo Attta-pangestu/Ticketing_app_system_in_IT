@@ -8,6 +8,10 @@ const ticketSchema = new mongoose.Schema(
         title: { type: String, required: true }, 
         description: { type: String, required: true },
         category: { type: String, required: true },
+        priority: { type: Number, required: true },
+        progress: { type: Number, required: true },
+        status: { type: String, required: true },
+    
     }, 
     {
         timestamps: true
@@ -15,4 +19,6 @@ const ticketSchema = new mongoose.Schema(
     
 )
 
-const TicketDB = mongoose.mo
+const TicketDB = mongoose.models.Ticket || mongoose.model('Ticket', ticketSchema);
+
+export default TicketDB;
