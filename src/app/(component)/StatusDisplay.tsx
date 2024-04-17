@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StatusDisplay = ({status} : {status: 'done' | 'started' | 'not started'} ) => {
+const StatusDisplay = ({status} : {status: string} ) => {
     
     function getColorByStatus(status : string) {
         let color;

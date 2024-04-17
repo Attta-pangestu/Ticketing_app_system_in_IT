@@ -13,6 +13,10 @@ const PriorityDisplay = ({priority} : {priority: number}) => {
          icon={faFire}
          className={`pr-1 ${priority > 1 ? 'text-red-400' : 'text-slate-400'}`}
         />
+        <FontAwesomeIcon
+         icon={faFire}
+         className={`pr-1 ${priority > 2 ? 'text-red-400' : 'text-slate-400'}`}
+        />
         
     </div>
   )

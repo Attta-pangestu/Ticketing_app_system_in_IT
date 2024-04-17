@@ -26,3 +26,26 @@ export async function POST(request : NextRequest ) {
     }
 
 }
+
+export async function DELETE(request: NextRequest) {
+    try{
+        const body = await request.json();
+        const ticketId = body.ticketId;
+        await TicketDB.findByIdAndDelete(ticketId);
+        return NextResponse.json({status: 'Ticket Deleted'}, { status: 200 })
+    }catch(err){
+        console.log(err)
+        return NextResponse.json({err, status: 'failed to delete'}, { status: 500 })
+    }
+}
+
+export async function PUT(request: NextRequest) {
+   try{
+    const {ticketId, formData} = await request.json();
+    await TicketDB.findByIdAndUpdate(ticketId, formData);
+    return NextResponse.json({status: 'Ticket Updated'}, { status: 200 })
+   }catch(err){
+       console.log(err)
+       return NextResponse.json({err, status: 'failed to update'}, { status: 500 })
+   }
+}

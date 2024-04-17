@@ -4,9 +4,10 @@ import DeleteBlock from './DeleteBlock';
 import Link from 'next/link';
 import ProgressDisplay from './ProgressDisplay';
 import StatusDisplay from './StatusDisplay';
+import { Ticket } from '@/types/TicketType';
 
 
-const TicketCard = () => {
+const TicketCard = ({ticket} : {ticket: Ticket}) => {
     function formatTimestamp(timestamp: number) {
        const options : Intl.DateTimeFormatOptions = {
             year: 'numeric',
@@ -20,34 +21,34 @@ const TicketCard = () => {
     const formattedDate = date.toLocaleString('en-US', options);
     return formattedDate;
     }
-
-    const createdDateTime = '2023-01-01T00:00:00.000Z';
+    const createdDateTime = formatTimestamp(Date.parse(ticket.createdAt));
+    
     
 
   return (
-    <div className='flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-2 m-2  '>
+    <div className='flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-2 m-2 ' id={ticket._id}>
         <div className='flex mb-3'>
-            <PriorityDisplay priority={0} />
+            <PriorityDisplay priority={ticket.priority} />
             <div className='ml-auto'>
-                <DeleteBlock />
+                <DeleteBlock id={ticket._id}  />
             </div>
         </div>
         
-        <Link style={{display: 'contents'}} href='/'>
-            <h4 className='mb-1'>Lorem Ipsum</h4>
+        <Link style={{display: 'contents'}} href={`/TicketPage/${ticket._id}`}>
+            <h4 className='mb-1'>{ticket.title}</h4>
             <hr className='h-px border-0 bg-page mb-2' />
-            <p className='whitespace-pre-wrap'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, at?</p>
+            <p className='whitespace-pre-wrap'>{ticket.description}</p>
 
             <div className='flex-grow'></div>
             
             <div className='flex mt-2'>
                 <div className='flex flex-col'>
-                    <p className='text-md my-1'>09 Januari 2023</p>
-                    <ProgressDisplay progress={40} />
+                    <p className='text-md my-1'>{createdDateTime}</p>
+                    <ProgressDisplay progress={ticket.progress} />
                 </div>
 
                 <div className='ml-auto flex items-end'>
-                    <StatusDisplay status='not started' />
+                    <StatusDisplay status={ticket.status} />
                 </div>
 
             </div>
